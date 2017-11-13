@@ -8,7 +8,7 @@ steps:
 # Unit test: invoke the new hub container to confirm it was
 # built correctly.  
 - name: 'gcr.io/$PROJECT_ID/hub'
-  args: [
+  args: ['version']
 
 
 images: ['gcr.io/$PROJECT_ID/hub']

@@ -11,13 +11,10 @@ RUN apt-get -y update && \
     mv hub-linux-amd64-2.2.8/bin/hub /usr/local/bin/hub && \
 
     # clean up
+    apt-get -y remove wget && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf hub-linux-amd64-2.2.8.tgz && \
     rm -rf hub-credential-helper-linux-amd64-0.0.1.tgz && \
-    rm -rf hub-linux-amd64-2.2.8 && \
-
-    # config the hub credential-helper 
-    hub config --global credential.https://github.com.helper /usr/local/bin/hub-credential-helper && \
-    hub config --global hub.protocol https
+    rm -rf hub-linux-amd64-2.2.8
 
 ENTRYPOINT ["hub"]
