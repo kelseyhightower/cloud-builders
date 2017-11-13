@@ -1,0 +1,14 @@
+# In this directory, run the following command to build this builder.
+# $ gcloud container builds submit . --config=cloudbuild.yaml
+
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/hub', '.']
+
+# Unit test: invoke the new hub container to confirm it was
+# built correctly.  
+- name: 'gcr.io/$PROJECT_ID/hub'
+  args: [
+
+
+images: ['gcr.io/$PROJECT_ID/hub']
